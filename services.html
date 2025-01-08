@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Spa</title>
+  <style>
+      :root {
+          --main-color: #007BFF;
+          --header-color: #6F4E37;
+          --background-color: white;
+          --text-color: chocolate;
+          --box-background: chocolate;
+          --hover-color: #0056b3;
+          --transition-speed: 0.3s;
+          --gold-color: gold;
+          --highlight-color: #A52A2A; /* New highlight brown color */
+      }
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: var(--background-color);
+          color: chocolate;
+      }
+      header {
+          background-color: var(--header-color);
+          color: var(--text-color);
+          padding: 10px 20px;
+          text-align: center;
+      }
+      nav {
+          margin: 20px 0;
+      }
+      nav a {
+          margin: 0 15px;
+          text-decoration: none;
+          color: var(--main-color);
+          font-weight: bold;
+          transition: color var(--transition-speed), background-color var(--transition-speed);
+      }
+      nav a:hover {
+          color: var(--text-color);
+          background-color: var(--box-background);
+          border-radius: 5px;
+          padding: 5px;
+      }
+      .banner {
+          width: 100%;
+          height: 500px;
+          background-image: url('home2.jpg');
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          text-shadow: 2px 2px 4px chocolate;
+          filter: brightness(0.8);
+          transition: filter var(--transition-speed);
+      }
+      .banner:hover {
+          filter: brightness(1);
+      }
+      .banner h1 {
+          font-size: 3em;
+          margin: 20;
+          animation: fadeIn 1s;
+      }
+      @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+      }
+      section {
+          padding: 20px;
+          margin: 40px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px chocolate;
+          color: chocolate;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+      }
+      #home, #about, #shop, #services, #reservation {
+          background-image: url('floralpink2.jpg');
+      }
+
+      .home-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          margin: 20px 0; /* Add some margin for spacing */
+      }
+
+      .home-image {
+          width: 30%; /* Adjust width as needed */
+          height: auto;
+          border-radius: 20px;
+          box-shadow: 0 2px 5px chocolate;
+          transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      }
+
+      .home-image:hover {
+          transform: scale(1.05);
+          box-shadow: 0 4px 10px gold;
+      }
+
+      .home-text {
+          flex: 1; /* Allow text to take the remaining space */
+          text-align: center; /* Center the text */
+      }
+
+      footer {
+          text-align: center;
+          padding: 20px 10px;
+          background-color: black;
+          color: var(--text-color);
+          position: relative;
+          bottom: 0;
+          width: 100%;
+          display: flex;
+          flex-direction: column; /* Changed to column for better layout */
+          align-items: center;
+  
+      }
+      .footer-content {
+          display: flex;
+          justify-content: center; /* Center the footer content */
+          align-items: center;
+          width: 100%;
+          max-width: 1200px; /* Limit the width of the footer content */
+          padding: 0 20px; /* Add some padding */
+      }
+      .footer-text {
+          text-align: center; /* Center the text in the footer */
+          margin-bottom: 10px;
+ }
+      .instagram-icons {
+          display: flex;
+          gap: 50px;
+          justify-content: flex-end; /* Align icons to the right */
+      }
+      .instagram-icons img {
+          width: 45px; /* Reduced size of social media icons */
+          height: 45px; /* Reduced size of social media icons */
+          transition: transform var(--transition-speed);
+      }
+      .instagram-icons img:hover {
+          transform: scale(1.1);
+      }
+      form {
+          display: flex;
+          flex-direction: column;
+          max-width: 300px;
+          margin: auto;
+          background: rgba(255, 255, 255, 0.8);
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px chocolate;
+      }
+      form label {
+          margin: 10px 0 5px;
+      }
+      form input, form textarea {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          margin-bottom: 5px;
+          transition: border-color var(--transition-speed);
+      }
+      form input:focus, form textarea:focus {
+          border-color: var(--main-color);
+          outline: none;
+      }
+      form input[type="submit"] {
+          background-color: var(--main-color);
+          color: black;
+          border: none;
+          cursor: pointer;
+          transition: background-color var(--transition-speed);
+      }
+      form input[type="submit"]:hover {
+          background-color: var(--hover-color);
+      }
+      .service-image {
+          width: 30%;
+          max-width: 300px;
+          height: auto;
+          border-radius: 20px;
+          margin-bottom: 10px;
+          transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      }
+      .service-image:hover {
+          transform: scale(1.05);
+          box-shadow: 0 4px 10px purple;
+      }
+      .service-images {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+      }
+      .brush-font {
+          font-family: 'Lucida Handwriting', cursive;
+          color: var(--gold-color);
+      }
+      .highlight {
+          color: var(--highlight-color); /* Apply highlight color */
+          text-shadow: 1px 1px 2px black; /* Add shadow effect */
+          transition: transform var(--transition-speed);
+      }
+      .highlight:hover {
+          transform: scale(1.1); /* Scale effect on hover */
+      }
+
+<style>
+   .shop-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+  }
+
+  .shop-images img {
+      width: 80%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 50px;
+      margin: 0 auto;
+      display: block;
+      transition: transform var(--transition-speed);
+      box-shadow: 0 2px 5px chocolate;
+  }
+
+  .shop-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px magenta;
+  }
+
+  @media (max-width: 600px) {
+      .shop-images {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          padding: 1rem;
+      
+      }
+  }
+  </style>
+</head>
+<body>
+  <header>
+      <nav>
+          <a href="home.html" class="brush-font">Home</a>
+          <a href="about.html" class="brush-font">About Us</a>
+          <a href="shop.html" class="brush-font">Shop</a>
+          <a href="services.html" class="brush-font">Services</a>
+          <a href="reservation.html" class="brush-font">Reservations</a>
+      </nav>
+  </header>
+ 
+  <div class="banner">
+      <h1>Spa Beauty Lounge</h1>
+  </div>
+
+  <audio controls autoplay loop>
+      <source src="audio.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+  </audio>
+
+<section id="services">
+      <h2 class="brush-font highlight">Our Premium Services <img src="giphy.gif" alt="Service GIF" style="width: 90px; height: 90px; vertical-align: middle; margin-left: 10px;"></h2>
+      <h1> <p>We offer a variety of services designed for your ultimate relaxation:</p> </h1>
+      
+      <h3 class="brush-font highlight">Royal Experience Package (MYR450)</h3>
+      <div class="service-images">
+          <img src="s1.jpg" alt="Royal Experience Package" class="service-image">
+          <div>
+              <ul>
+                 <h1 <li>Manicure</li>
+                  <li>Sauna + Body Scrub + Relaxing Bath</li>
+                  <li>Sinus Facial Treatment</li>
+                  <li>Anti Stress Massage</li>
+                  <li>Hair Wash</li>
+                  <li>Silky Hair Treatment</li>
+                  <li>Hair Rebonding</li>
+                  <li>Hair Henna</li>
+                  <li>Hair Keratin</li> </h1>
+              </ul>
+          </div>
+      </div>
+
+      <h3 class="brush-font highlight">Majestic Glow Package (MYR350)</h3>
+      <div class="service-images">
+          <div>
+              <ul>
+                <h1  <li>Manicure</li>
+                  <li>Anti Stress Massage</li>
+                  <li>Body Scrub + Relaxing Bath</li>
+                  <li>Hair Wash</li>
+                  <li>Silky Hair Treatment</li>
+                  <li>Hair Relaxing</li>
+                  <li>Hair Henna</li> </h1>
+              </ul>
+          </div>
+          <img src="s2.jpg" alt="Majestic Glow Package" class="service-image">
+      </div>
+
+      <h3 class="brush-font highlight">Platinum Serenity Package (MYR310)</h3>
+      <div class="service-images">
+          <img src="s3.jpg" alt="Platinum Serenity Package" class="service-image">
+          <div>
+              <ul>
+                <h1  <li>Manicure</li>
+                  <li>Anti Stress Massage</li>
+                  <li>Hair Wash</li>
+                  <li>Silky Hair Treatment</li>
+                  <li>Hair Henna</li> </h2>
+              </ul>
+          </div>
+      </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-content" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div class="footer-text" style="text-align: center;">
+            <p>Location</p>
+            <p>Jalan 5/8 Bandar Rinching, Bandar Rinching, Semenyih, Selangor.</p>
+            <p>&copy; 2025 Spa Beauty Lounge. All rights reserved.</p>
+        </div>
+        <div class="instagram-icons" style="margin-left: auto;">
+            <a href="https://www.instagram.com/beautylounge_ok?igsh=N2MybWF3N3RuY3Fu" target="_blank">
+                <img src="ig.jpg" alt="Instagram">
+            </a>
+            <a href="https://wa.me/60192032619" target="_blank">
+                <img src="ws.jpg" alt="Whatsapp">
+            </a>
+            <a href="https://www.facebook.com/share/1FKCVr1FRS/" target="_blank">
+                <img src="fb.jpg" alt="Facebook">
+            </a>
+        </div>
+    </div>
+</footer>
